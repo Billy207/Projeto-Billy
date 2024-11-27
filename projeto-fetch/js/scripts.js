@@ -7,10 +7,10 @@ const postPage = document.querySelector("#post");
 const postContainer = document.querySelector("#post-container");
 const commentsContainer = document.querySelector("#comments-container");
 
+
 const commentForm = document.querySelector("#comment-form");
 const emailInput = document.querySelector("#email");
 const bodyInput = document.querySelector("#body");
-
 // Load post
 const urlSearchParams = new URLSearchParams(window.location.search);
 const postId = urlSearchParams.get("id");
@@ -36,7 +36,7 @@ async function getAllPosts() {
     title.innerText = post.title;
     body.innerText = post.body;
     link.innerText = "Ler";
-    link.setAttribute("href", `/post.html?id=${post.id}`);
+    link.setAttribute("href", `file:///C:/Users/gelso.junior/Documents/GitHub/Projeto-Billy/projeto-fetch/post.html?id=${post.id}`);
 
     div.appendChild(title);
     div.appendChild(body);
@@ -88,6 +88,7 @@ function createComment(comment) {
 
 // Insert a comment
 async function postComment(comment) {
+  console.log('AAAAAAAAAAAAAAAAAAAAAAA')
   const response = await fetch(url, {
     method: "POST",
     body: comment,
