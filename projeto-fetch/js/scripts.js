@@ -88,7 +88,6 @@ function createComment(comment) {
 
 // Insert a comment
 async function postComment(comment) {
-  console.log('AAAAAAAAAAAAAAAAAAAAAAA')
   const response = await fetch(url, {
     method: "POST",
     body: comment,
