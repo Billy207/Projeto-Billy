@@ -21,27 +21,50 @@
       flex-direction: column;
       gap: 10px;
     }
-    .forecast-day {
-      padding: 10px;
-      border: 1px solid #c71919;
+    .forecast-card {
+      border: 1px solid #ccc;
       border-radius: 5px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      cursor: pointer;
+      position: relative;
+    }
+    .forecast-summary {
+      font-weight: bold;
       display: flex;
       justify-content: space-between;
+      align-items: center;
+    }
+    .forecast-details {
+      margin-top: 10px;
+      display: none; /* Escondido inicialmente */
+      flex-direction: column;
+      gap: 5px;
+    }
+    .forecast-details.open {
+      display: flex;
+    }
+    .arrow {
+      font-size: 16px;
+      transition: transform 0.3s ease;
+    }
+    .arrow.open {
+      transform: rotate(180deg);
     }
   </style>
 </head>
 <body>
   <h1>Previsão do Tempo</h1>
-  <!-- Barra de pesquisa -->
   <div class="search-bar">
     <input id="city" type="text" placeholder="Digite o nome da cidade" />
     <button id="search">Buscar</button>
   </div>
-  <!-- Resultados -->
   <div>
     <h2 id="current-temp">Temperatura atual: --</h2>
-    <h3>Previsão dos próximos 5 dias:</h3>
+    <h3>Previsão da Semana:</h3>
     <div id="forecast" class="forecast"></div>
   </div>
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
+</body>
 </html>
+
