@@ -5,7 +5,6 @@ const API_KEY = "2dc8ab4bf9aed9a43e8bf2b05f4df85e";
 async function fetchWeather(city) {
   try {
     const url = `${API_BASE_URL}?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric&lang=pt_BR`;
-
     const response = await fetch(url);
 
     if (!response.ok) {

@@ -5,66 +5,157 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Previsão do Tempo</title>
   <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: Arial, sans-serif;
+      background-color: #e3f2fd; /* Fundo leve */
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Barra azul superior */
+    .header {
+      background-color: #0288d1; /* Azul forte */
+      color: #fff;
       padding: 20px;
-      max-width: 600px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .header img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .header h1 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    /* Área principal */
+    main {
+      padding: 20px;
+      max-width: 800px;
       margin: auto;
     }
+
     .search-bar {
       display: flex;
       gap: 10px;
       margin-bottom: 20px;
     }
+
+    .search-bar input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .search-bar button {
+      padding: 10px 20px;
+      background-color: #0288d1;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .search-bar button:hover {
+      background-color: #0277bd;
+    }
+
+    .current-weather {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
     .forecast {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 15px;
     }
+
     .forecast-card {
+      background-color: white;
       border: 1px solid #ccc;
       border-radius: 5px;
-      padding: 10px;
-      background-color: #f9f9f9;
+      padding: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
       cursor: pointer;
-      position: relative;
     }
+
+    .forecast-card:hover {
+      transform: translateY(-5px);
+    }
+
     .forecast-summary {
       font-weight: bold;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
+
     .forecast-details {
       margin-top: 10px;
-      display: none; /* Escondido inicialmente */
+      display: none;
       flex-direction: column;
       gap: 5px;
     }
+
     .forecast-details.open {
       display: flex;
     }
+
     .arrow {
       font-size: 16px;
       transition: transform 0.3s ease;
     }
+
     .arrow.open {
       transform: rotate(180deg);
     }
   </style>
 </head>
 <body>
-  <h1>Previsão do Tempo</h1>
-  <div class="search-bar">
-    <input id="city" type="text" placeholder="Digite o nome da cidade" />
-    <button id="search">Buscar</button>
-  </div>
-  <div>
-    <h2 id="current-temp">Temperatura atual: --</h2>
-    <h3>Previsão da Semana:</h3>
-    <div id="forecast" class="forecast"></div>
-  </div>
+  <!-- Barra azul com ícone -->
+  <header class="header">
+    <img src="https://img.icons8.com/external-flat-juicy-fish/60/FFFFFF/external-rain-meteorology-flat-flat-juicy-fish.png" alt="Ícone de chuva">
+    <h1>Previsão do Tempo</h1>
+  </header>
+
+  <main>
+    <!-- Barra de busca -->
+    <div class="search-bar">
+      <input id="city" type="text" placeholder="Digite o nome da cidade">
+      <button id="search">Buscar</button>
+    </div>
+
+    <!-- Temperatura atual -->
+    <div class="current-weather">
+      <h2 id="current-temp">Temperatura atual: --</h2>
+    </div>
+
+    <!-- Previsões -->
+    <section>
+      <h3>Previsão da Semana:</h3>
+      <div id="forecast" class="forecast"></div>
+    </section>
+  </main>
+
   <script src="script.js"></script>
 </body>
 </html>
-
